@@ -24,4 +24,4 @@ else
   apt-get install -o Dpkg::Options::="--force-confold" -y nginx
 
   /usr/local/sbin/generate_config -p /etc/nginx/fabric_config.yaml -t /etc/nginx/nginx-fabric.conf.j2 > /etc/nginx/nginx-fabric.conf
-fi`
+fi
