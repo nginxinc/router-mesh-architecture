@@ -24,6 +24,6 @@ RUN /usr/local/sbin/install-nginx.sh
 RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
 	ln -sf /dev/stdout /var/log/nginx/error.log
 
-CMD ["nginx","-c","/etc/nginx/nginx-fabric.conf"]
+CMD ["nginx","-c","/etc/nginx/nginx-router-mesh.conf"]
 
 EXPOSE 80 443

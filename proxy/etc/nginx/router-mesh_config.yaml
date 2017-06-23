@@ -1,0 +1,11 @@
+name: proxy
+resolver:
+  host: 127.0.0.11
+  ttl: 3s
+root: /usr/share/nginx/html/
+services:
+  router-mesh:
+    server: router-mesh:443
+    expose_external: true
+    healthcheck: true
+    healthcheck_uri: /
