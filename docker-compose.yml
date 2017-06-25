@@ -1,0 +1,37 @@
+version: '3.1'
+services:
+  proxy:
+    build: proxy
+    image: ngrefarch/rm-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - web
+    container_name: rm_proxy
+  web:
+    build: web
+    image: ngrefarch/rm-web
+    environment:
+      - BACKEND_ENDPOINT_URL=http://localhost/backend
+    ports:
+      - "81:80"
+    depends_on:
+      - backend
+    volumes:
+      - ./web/app:/app
+    container_name: rm_web
+  backend:
+    build: backend
+    image: ngrefarch/rm-backend
+    ports:
+      - "82:80"
+    volumes:
+      - ./backend/app:/usr/src/app
+    container_name: rm_backend
+  router-mesh:
+    build: router-mesh
+    image: ngrefarch/rm-router-mesh
+    ports:
+      - "83:80"
+    container_name: rm_router-mesh
