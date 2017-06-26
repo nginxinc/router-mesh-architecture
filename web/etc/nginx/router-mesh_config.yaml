@@ -1,0 +1,11 @@
+name: web
+resolver:
+  host: 127.0.0.11
+  ttl: 3s
+root: /app/web
+services:
+  backend:
+    server: backend:443
+    expose_external: true
+    healthcheck: true
+    healthcheck_uri: /
