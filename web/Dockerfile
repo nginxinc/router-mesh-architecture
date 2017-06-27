@@ -28,8 +28,8 @@ RUN mkdir -p /var/log/nginx && \
 COPY app /app
 
 #RUN chown -R nginx:www-data /app/
-RUN
+RUN cd /app &&
 
-CMD
+CMD ["/usr/local/sbin/start.sh"]
 
 EXPOSE 443 80
