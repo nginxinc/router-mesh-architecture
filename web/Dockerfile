@@ -1,4 +1,4 @@
-FROM python:3.6.1-latest
+FROM php:7.0.5-fpm
 
 RUN apt-get update && apt-get install -y \
 	apt-transport-https \
@@ -28,7 +28,7 @@ RUN mkdir -p /var/log/nginx && \
 COPY app /app
 
 #RUN chown -R nginx:www-data /app/
-RUN cd /app &&
+RUN cd /app && SYMFONY_ENV=prod php composer.phar install --no-dev --optimize-autoloader
 
 CMD ["/usr/local/sbin/start.sh"]
 
