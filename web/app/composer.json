@@ -1,0 +1,20 @@
+{
+    "name": "Silex standard",
+    "license": "MIT",
+    "type": "project",
+    "description": "The \"Silex\" distribution",
+    "require": {
+        "php": ">=5.3.9",
+        "silex/silex":  "~2.0",
+        "guzzlehttp/guzzle": "~6.0",
+        "twig/twig": "~1.0",
+        "symfony/serializer": "^3.1",
+        "symfony/twig-bridge": "^3.1",
+        "symfony/templating": "^3.1",
+        "symfony/stopwatch": "^3.1",
+        "symfony/finder": "^3.1"
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}

@@ -1,0 +1,651 @@
+/*
+====================================================
+* [Ingeniuous Responsive Stylesheet]
+====================================================
+*/
+
+
+/* For large Mobile screens */
+
+/* home page */
+
+@media only screen and (max-width: 767px) {
+
+
+.main-nav {
+  background: rgba(0, 149, 58, 0.95);
+}
+
+.main-nav, .right-nav {
+  width: 252px;
+  padding: 25px 0 0 25px;
+}	
+
+.main-nav.nav-close {
+  left: -252px;
+}
+
+.main-nav.nav-open {
+  left: 0;
+}
+
+.right-nav.nav-close {
+  right: -252px;
+}
+
+.right-nav.nav-open {
+  opacity: 1;
+  right: 0;
+}
+
+.fixed-top-header .nav-btn img {
+  width: 32px;
+}
+
+.fixed-top-header .nav-btn {
+  margin-left: 25px;
+  margin-top: 25px;
+}
+
+.fixed-top-header .right-nav-btn {
+  right: 20px;
+  top: 20px;
+}
+
+.fixed-top-header .login-btn-container {
+  right: 25px;
+  top: 28px;
+}
+
+.fixed-top-header .header-logo {
+  margin: 18px auto 0;
+  width: 36px;
+}
+
+.fixed-top-header .header-logo img {
+  width: 36px;
+}
+
+.fixed-top-header .right-nav-btn img {
+  width: 42px;
+}
+
+.nav-close-btn img {
+  width: 25px;
+}
+
+.main-nav-items .nav-item a, .right-nav-items .nav-item a {
+  font-size: 30px;
+}
+
+.main-nav-items .nav-item, .right-nav-items .nav-item {
+  padding-bottom: 25px;
+}
+
+.hero-banner {
+  height: calc(100vh + 150px);
+}
+
+.hero-banner-content .hero-banner-title {
+  font-size: 72px;
+  letter-spacing: 2px;
+  margin: 50px auto 20px;
+}
+
+.hero-banner-content .hero-banner-subtitle {
+  font-size: 18px;
+}
+
+.hero-banner-content .hero-banner-subtitle img {
+  height: 13px;
+}
+
+a.scroll-down {
+  margin: 140px auto 0;
+}
+
+.about {
+  padding: 50px 0;
+}
+
+.about .section-description {
+  font-size: 15px;
+  line-height: 28px;
+  margin: 25px auto;
+  max-width: 100%;
+  padding: 0 20px;
+}
+
+.article-container {
+  padding: 0;
+}
+
+.entry-wrap .entry-inner {
+  height: auto;
+}
+
+.entry-content {
+  padding: 20px 40px;
+}
+
+.entry-featured {
+  height: 450px;
+}
+
+.entry-wrap, .single-post:nth-child(2n) .entry-wrap  {
+  float: none;
+  height: 240px;
+}
+
+.entry-wrap .entry-inner {
+  padding-bottom: 32px;
+}
+
+.single-post {
+  float: none;
+}
+
+.single-post:nth-child(2n) .entry-featured {
+  float: none;
+  height: 250px;
+}
+
+
+.entry-content .entry-title {
+  font-size: 14px;
+}
+
+.entry-content .entry-excerpt {
+  margin-bottom: 17px;
+  padding-bottom: 20px;
+}
+
+.entry-content .entry-excerpt p {
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.entry-content .entry-excerpt .more-link {
+  font-size: 12px;
+}
+
+.entry-meta .author-meta .author-avatar img {
+  width: 20px;
+}
+
+.entry-meta .author-meta .author-title {
+  color: #9b9b9b;
+  font-size: 12px;
+  line-height: 15px;
+  margin-top: 4px;
+}
+
+.entry-meta .author-meta {
+  float: left;
+}
+
+.entry-meta .author-meta .media-body {
+  width: auto;
+}
+
+.entry-meta .date-meta {
+  float: right;
+  font-size: 10px;
+  margin-top: 4px;
+}
+
+.footer-content {
+  padding-top: 50px;
+}
+
+
+footer.colophon-bottom {
+  min-height: 250px;
+  background-position: center top;
+}
+
+.footer-content h2 {
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+
+.footer-content .footer-logo {
+  margin: 30px auto;
+  width: 100px;
+}
+
+.footer-content .footer-copyright {
+  font-size: 10px;
+}
+
+/* Login page */
+
+.login-content {
+  margin-top: 75px;
+  padding: 50px 0;
+}
+
+.login-content .login-title {
+  font-size: 30px;
+  line-height: 50px;
+  margin-bottom: 50px;
+}
+
+/* page template */
+
+.page.hero-banner {
+  padding: 100px 0 25px;
+}
+
+.page-header {
+  padding: 30px 0 40px;
+}
+
+.page-header .page-title-icon {
+  width: 32px;
+}
+
+.page-header .page-title {
+  font-size: 30px;
+  line-height: 50px;
+  margin: 20px 0;
+}
+
+.page-header .learn-more-btn {
+  font-size: 13px;
+  padding: 6px 12px;
+}
+
+.page-content h2 {
+  font-size: 21px;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.page-content p {
+  font-size: 14px;
+  line-height: 22px;
+}
+
+/* single post */
+
+.fixed-top-header {
+  height: 80px;
+}
+
+.post-header {
+  border-bottom: 1px solid rgba(74, 74, 74, 0.6);
+  margin: 0;
+  padding: 80px 0 50px;
+}
+
+.single-post-title {
+  margin: 50px auto 0;
+}
+
+.single-post-title h1 {
+  font-size: 30px;
+  letter-spacing: 0.6px;
+  line-height: 37px;
+  padding: 0 35px;
+}
+
+.post-navigation img {
+  height: 20px;
+}
+
+.post-navigation .post-prev {
+  left: 20px;
+  top: calc(50% - 10px);
+}
+
+.post-navigation .post-next {
+  right: 20px;
+  top: calc(50% - 10px);
+}
+
+.single-post-meta {
+  margin-top: -5px;
+  width: 270px;
+}
+
+.single-post-meta h4 {
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.single-post-meta .author-meta h4 {
+  margin-right: 30px;
+}
+
+.single-post-meta .author-meta img {
+  margin-right: 10px;
+  margin-top: 6px;
+  width: 20px;
+  margin-left: 18px; 
+}
+
+.single-post-meta .date-meta p {
+  font-size: 10px;
+  line-height: 12px;
+  margin-top: 12px;
+}
+
+.single-post-meta .place-meta h4 {
+  font-size: 10px;
+  line-height: 12px;
+  margin-top: 12px;
+}
+
+.single-post-meta .place-meta img {
+  margin-left: 10px;
+  margin-top: 8px;
+  width: 20px;
+}
+
+.post-content {
+  padding: 60px 25px 5px;
+}
+
+.post-content, .post-content p {
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  line-height: 22px;
+}
+
+.post-content p:first-child::first-letter {
+  font-size: 35px;
+  margin-right: 6px;
+  margin-top: 8px;
+}
+
+
+/* my account page */
+
+.profile.hero-banner {
+  height: calc(100vh + 120px);
+  min-height: 740px;
+}
+
+
+.profile-content {
+  margin-top: 120px;
+}
+
+.profile-title {
+  font-size: 30px;
+  line-height: 50px;
+  margin: 25px auto 100px;
+}
+
+.profile-photo {
+  width: 68px;
+}
+
+.profile-update-form {
+  padding: 0 15px;
+  width: 100%;
+}
+
+.profile-update-form .control-label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  line-height: 14px;
+}
+
+.profile-update-form .form-control {
+  font-size: 14px;
+  height: 28px;
+  letter-spacing: 0.3px;
+}
+
+.profile-update-form .small-pp {
+  width: 50px;
+}
+
+.profile-update-form .small-pp img {
+  width: 40px;
+}
+
+.profile-update-form .remove-pp a {
+  font-size: 12px;
+  left: 8px;
+  letter-spacing: 0.5px;
+  padding: 3px 10px;
+  top: 9px;
+  text-shadow: none;
+}
+
+.profile-update-form .update-pp span {
+  font-size: 12px;
+  left: 0;
+  letter-spacing: 0.5px;
+  padding: 3px 10px;
+  top: 9px;
+  text-shadow: none;
+}
+
+.profile-update-form .col-xs-8 {
+  margin-left: -10px;
+  padding-left: 0;
+}
+
+.profile-update-form .update-account {
+  margin: 40px auto;
+}
+
+/* photos page CSS */
+
+.photos.hero-banner {
+  height: 336px;
+}
+
+.add-cover {
+  bottom: 152px;
+  left: 15px;
+}
+
+.add-cover img {
+  width: 20px;
+}
+
+.add-cover p {
+  font-size: 9px;
+  line-height: 12px;
+  margin-left: 8px;
+}
+
+.albums .page-content .page-title {
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.albums .page-content {
+  padding: 40px 10px 20px;
+}
+
+.albums .album-thumb {
+  padding: 0 10px;
+}
+
+.albums .album-thumb figure {
+  height: 130px;
+  margin: 0 auto;
+  width: 100px;
+}
+
+.albums .album-thumb .album-caption {
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  margin: 15px auto 0;
+}
+
+.albums {
+  padding-bottom: 25px;
+}
+
+.add-photo .page-title, .add-cover-photo .page-title, .add-album .page-title {
+  font-size: 30px;
+  letter-spacing: 2px;
+  line-height: 50px;
+  margin-bottom: 90px;
+  padding-top: 10px;
+}
+
+.add-photo .profile-update-form .update-account, .add-cover-photo .profile-update-form .update-account, .add-album .profile-update-form .update-account {
+  margin: 10px auto;
+}
+
+.add-photo .profile-update-form, .add-cover-photo .profile-update-form, .add-album .profile-update-form {
+  margin-top: 100px;
+}
+
+/* single album CSS */
+
+.single-album.hero-banner {
+  height: 200px;
+  padding-top: 100px;
+}
+
+.single-album .header-content .page-title {
+  font-size: 11px;
+  letter-spacing: 1px;
+  line-height: 14px;
+}
+
+.single-album .header-content .album-title {
+  font-size: 30px;
+  letter-spacing: 0.6px;
+  line-height: 42px;
+  margin: 0 auto;
+}
+
+.albums .page-content {
+  padding: 0 10px 20px;
+}
+
+.albums .album-container {
+  padding: 0;
+}
+
+.albums.album-single {
+  padding-bottom: 120px;
+}
+
+
+.back-to-photos a, .back-to-photos a:hover{
+  margin-top: 80px;
+}
+
+.album-meta {
+  width: 260px;
+}
+
+.album-meta .author-meta h4 {
+  margin-right: 30px;
+}
+
+
+.cancel-upload {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+}
+
+.cancel-upload img {
+  display: block;
+  margin: 0 auto;
+  width: 15px;
+}
+
+
+/* lightbox CSS */
+
+.photo-title {
+  font-size: 21px;
+  letter-spacing: 1px;
+  line-height: 26px;
+  margin: 10px auto 25px;
+}
+
+
+.lg-outer .lg-inner {
+  padding-top: 80px;
+}
+
+.lg-outer .lg-item::before, .lg-outer .lg-img-wrap::before {
+  height: auto;
+}
+
+.lg-sub-html {
+  overflow: hidden;
+  padding-bottom: 0;
+  top: 400px;
+  width: 100%;
+}
+
+.album-meta .author-meta img {
+  margin-right: 10px;
+  margin-top: 0;
+  width: 18px;
+}
+
+.album-meta h4 {
+  font-size: 12px;
+  line-height: 15px;
+  margin-top: 2px;
+}
+
+.album-meta .date-meta p {
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.album-meta .place-meta img {
+  margin-left: 10px;
+  margin-top: 0;
+  width: 18px;
+}
+
+.album-meta .place-meta h4 {
+  font-size: 10px;
+  line-height: 12px;
+  margin-top: 4px;
+}
+
+.lg-actions {
+  position: absolute;
+  top: 330px;
+  width: 100%;
+}
+
+.lg-actions .lg-next::before, .lg-actions .lg-prev::after {
+  height: 30px;
+  width: 30px;
+  top: 8px;
+}
+
+body.lg-on {
+  overflow: hidden;
+}
+
+.lg-outer .lg {
+  overflow: hidden;
+}
+
+.lg-toolbar .lg-close {
+  display: none;
+}
+
+.lg-actions .lg-next {
+  right: 40px;
+}
+
+.lg-actions .lg-prev {
+  left: 40px;
+}
+
+
+/* end responsive CSS */
+
+}

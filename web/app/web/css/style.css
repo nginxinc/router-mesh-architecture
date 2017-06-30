@@ -1,0 +1,1814 @@
+/*
+====================================================
+* [Ingeniuous Master Stylesheet]
+====================================================
+
+   TOC:
+  =======
+  0. Webfonts and Icon fonts Import
+
+  1. Primary Styles
+  2. Hero Banner Styles
+  3. About Section Styles
+  4. Articles Section Styles
+  5. Footer Styles
+  6. Login Page Styles
+  7. My Account Page Styles
+
+===================================================== */
+
+
+
+/* --------------------------------- */
+/* 0. Webfonts
+ ----------------------------------- */
+
+/*@import url("https://fonts.googleapis.com/css?family=Roboto:100,400,300,500,700");*/
+
+
+/* -------------------------------- 
+1. Primary style
+-------------------------------- */
+
+*,::after,::before {
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box
+}
+
+html {
+  font-size:62.5%;
+}
+
+body {
+  background:#000;
+  font-size:1.6rem;
+  font-family:"aktiv_grotesk_regular",sans-serif;
+  color:#fff
+}
+
+a {
+  color:#01DD60;
+  text-decoration:none
+}
+
+a:hover, a:active, a:focus {
+  outline: none!important;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family:"aktiv_grotesk_regular", sans-serif;
+}
+
+h1 {
+  font-size:2em;
+  margin:.67em 0
+}
+
+h2 {
+  font-size:1.5em;
+  margin:.75em 0
+}
+
+h3 {
+  font-size:1.17em;
+  margin:.83em 0
+}
+
+h5 {
+  font-size:.83em;
+  margin:1.5em 0
+}
+
+h6 {
+  font-size:.75em;
+  margin:1.67em 0
+}
+
+ul li {
+  list-style: none;
+}
+
+ul.bulletlist, ul.bulletlist > li {
+    list-style: circle;
+    font-size: 24px;
+}
+
+.login-btn {
+  border: 1px solid #01dd60;
+  color: #01dd60;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  padding: 8px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.login-btn:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+.login-btn:hover, .login-btn:active, .login-btn:visited{
+  text-decoration: none;
+}
+
+/* -------------------------------- 
+2. Hero banner style
+-------------------------------- */
+
+.hero-banner {
+  background: rgba(0, 0, 0, 0) url("../images/aurora.png") no-repeat scroll center center / cover ;
+  height: calc(100vh + 250px);
+  position: relative;
+}
+
+.fixed-top-header {
+  height: 120px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 99998;
+}
+
+.fixed-top-header .nav-btn {
+  display: inline;
+  float: left;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.fixed-top-header .nav-btn img {
+  width: 42px;
+}
+
+.fixed-top-header .header-logo {
+  margin: 35px auto 0;
+  width: 50px;
+}
+
+.fixed-top-header .header-logo img {
+  display: block;
+  margin: 0 auto;
+  width: 50px;
+}
+
+.fixed-top-header .login-btn-container {
+  position: absolute;
+  right: 50px;
+  top: 50px;
+}
+
+.fixed-top-header .right-nav-btn {
+  position: absolute;
+  right: 50px;
+  top: 50px;
+}
+
+.fixed-top-header .right-nav-btn img{
+  width: 48px;
+}
+
+.hero-banner-content {
+  margin-top: 120px;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  position: relative;
+  text-align: center;
+  z-index: 3;
+}
+.hero-banner-content .hero-banner-title {
+  font-size: 150px;
+  font-weight: 100;
+  letter-spacing: 4px;
+  line-height: 1;
+  margin: 200px auto 50px;
+  font-family: "aktiv_grotesk_hair", sans-serif;
+}
+
+.hero-banner-content .hero-banner-subtitle {
+  font-family: "aktiv_grotesk_hair",sans-serif;
+  font-size: 34px;
+  letter-spacing: 1px;
+}
+
+.hero-banner-content .hero-banner-subtitle img {
+  display: inline;
+  height: 24px;
+  margin-top: -2px;
+}
+
+a.scroll-down {
+  display: block;
+  margin: 60px auto 0;
+}
+
+a.scroll-down img{
+  margin: 0 auto;
+  display: block;
+  width: 50px;
+}
+
+.gradient {
+  background: rgba(0, 0, 0, 0) url("../images/gradient.png") repeat-x scroll 0 0;
+  bottom: 0;
+  height: 500px;
+  position: absolute;
+  width: 100%;
+}
+
+/* Navigation */
+
+.main-nav {
+  background: rgba(0, 149, 58, 0.8);
+  height: 100%;
+  left: 0;
+  padding: 50px 0 0 50px;
+  position: fixed;
+  top: 0;
+  transition: all 0.3s ease 0s;
+  width: 317px;
+  z-index: 99999;
+}
+
+.right-nav {
+  background: rgba(0, 0, 0, 0.8);
+  height: 100%;
+  right: 0;
+  padding: 50px 0 0 50px;
+  position: fixed;
+  top: 0;
+  transition: all 0.3s ease 0s;
+  width: 350px;
+  z-index: 99999;
+}
+
+.main-nav.nav-close{
+  opacity: 0;
+  left: -317px;
+
+}
+
+.right-nav.nav-close{
+  opacity: 0;
+  right: -350px;
+}
+
+.main-nav.nav-open{
+  opacity: 1;
+  left: 0;
+}
+
+.right-nav.nav-open{
+  opacity: 1;
+  right: 0;
+}
+
+.hide-nav-btn{
+  opacity: 0;
+}
+
+.nav-close-btn img{
+  width: 42px;
+}
+
+.main-nav-items,
+.right-nav-items {
+  margin-bottom: 30px;
+  margin-top: 70px;
+  padding: 0;
+}
+
+.main-nav-items .nav-item,
+.right-nav-items .nav-item {
+  line-height: 1;
+  list-style: outside none none;
+  padding-bottom: 30px;
+}
+
+.main-nav-items .nav-item a,
+.right-nav-items .nav-item a {
+  color: #d8d8d8;
+  font-family: "aktiv_grotesk_hair",sans-serif;
+  font-size: 40px;
+  text-decoration: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.main-nav-items .nav-item a:hover,
+.right-nav-items .nav-item a:hover {
+  color: #fff;
+}
+
+
+/* --------------------------------
+3. About Section style
+-------------------------------- */
+
+.about {
+  min-height: 300px;
+  padding: 150px 0;
+  text-align: center;
+}
+
+.about .section-title {
+  color: #01dd60;
+  font-family: "aktiv_grotesk_thin",sans-serif;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  line-height: 22px;
+  text-transform: uppercase;
+}
+
+.about .section-description {
+  color: #fff;
+  font-family: "aktiv_grotesk_hair",sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.3px;
+  line-height: 35px;
+  margin: 40px auto;
+  max-width: 600px;
+}
+
+.about .learn-more {
+  color: #01DD60;
+  font-family: "aktiv_grotesk_thin",sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  line-height: 26px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.about .learn-more:hover {
+  text-decoration: none;
+}
+
+.about .learn-more img {
+  display: block;
+  margin: 10px auto;
+  width: 36px;
+}
+
+/* --------------------------------
+4. Articles Section style
+-------------------------------- */
+
+.article-container {
+  padding: 0 150px;
+}
+
+
+.single-post {
+  display: block;
+  float: left;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+.single-post:first-child {
+  margin-top: 50px;
+}
+
+.single-post:nth-child(2n) .entry-featured{
+  float: right;
+  height: 450px;
+}
+
+.single-post:nth-child(2n) .entry-wrap{
+  float: left;
+  height: 450px;
+}
+
+.entry-featured, .entry-wrap {
+  height: 750px;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.entry-thumb {
+  height: 100%;
+  background-attachment: scroll;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.entry-wrap .entry-thumb{
+  height: calc(100% + 30px);
+  margin-left: -15px;
+  margin-top: -15px;
+  width: calc(100% + 30px);
+  -webkit-filter: blur(15px);
+  -moz-filter: blur(15px);
+  -o-filter: blur(15px);
+  -ms-filter: blur(15px);
+  filter: blur(15px);
+}
+
+.entry-wrap .entry-inner {
+  background: rgba(0, 0, 0, 0.7) none repeat scroll 0 0;
+  bottom: 0;
+  display: table;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+.entry-content {
+  display: table-cell;
+  padding: 0 80px;
+  vertical-align: middle;
+}
+
+.entry-content .entry-title {
+  color: #01dd60;
+  font-family: "aktiv_grotesk_thin",sans-serif;
+  font-size: 21px;
+  letter-spacing: 0.3px;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.entry-content .entry-title a:hover{
+  color: #01dd60;
+  text-decoration: none;
+}
+
+
+.entry-content .entry-excerpt {
+  border-bottom: 1px solid #9b9b9b;
+  font-family: "aktiv_grotesk_thin",sans-serif;
+  margin-bottom: 40px;
+  padding-bottom: 50px;
+}
+
+.entry-content .entry-excerpt p {
+  color: #fff;
+  font-size: 20px;
+  letter-spacing: 0.3px;
+  line-height: 26px;
+  display: inline;
+}
+
+.entry-content .entry-excerpt .more-link {
+  color: #01dd60;
+  display: block;
+  font-size: 17px;
+  margin-top: 5px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.entry-meta{
+  color: #9b9b9b;
+  font-family: "aktiv_grotesk_thin",sans-serif;
+}
+
+.entry-meta .author-meta{
+  padding: 0;
+  margin: 0;
+}
+
+.entry-meta .author-meta .author-avatar img{
+  width: 32px;
+}
+
+.entry-meta .author-meta .author-title {
+  font-family: "aktiv_grotesk_thin",sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  margin-top: 6px;
+}
+
+.entry-meta .date-meta {
+  font-size: 16px;
+  margin-top: 6px;
+  padding: 0;
+  text-align: right;
+}
+
+/* --------------------------------
+5. Footer style
+-------------------------------- */
+
+footer.colophon-bottom {
+  background: rgba(0, 0, 0, 0) url("../images/aurora.png") no-repeat scroll center center / cover ;
+  color: #fff;
+  min-height: 400px;
+  position: relative;
+  text-align: center;
+}
+
+.footer-inner {
+  background: rgba(0, 0, 0, 0) url("../images/footer-gradient.png") repeat-x scroll center top / cover ;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+.footer-content {
+  padding-top: 100px;
+}
+
+.footer-content h2 {
+  font-family: "aktiv_grotesk_hair", sans-serif;
+  font-size: 32px;
+  letter-spacing: 0.7px;
+}
+
+.footer-content .footer-logo {
+  display: block;
+  margin: 40px auto;
+  width: 120px;
+}
+
+.footer-content .footer-copyright {
+  font-family: "aktiv_grotesk_thin",sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #9B9B9B;
+}
+
+/* --------------------------------
+6. Login Page style
+-------------------------------- */
+
+.login.hero-banner {
+  height: 100vh;
+}
+
+.login-content {
+  margin-top: 50px;
+  padding: 50px 0;
+  position: relative;
+  text-align: center;
+  z-index: 3;
+}
+
+.login-content .login-title {
+  color: #fff;
+  font-family: "aktiv_grotesk_hair",sans-serif;
+  font-size: 60px;
+  line-height: 76px;
+}
+
+
+.login-content .fb-login, .login-content .google-login {
+  display: block;
+  font-family: "Roboto",sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 40px;
+  margin: 20px auto;
+  width: 215px;
+  text-decoration: none;
+}
+
+.login-content .fb-login, .login-content .google-login {
+  display: block;
+  height: 40px;
+  font-size: 14px;
+}
+
+.login-content .fb-login img, .login-content .google-login img {
+  display: inline-block;
+  float: left;
+  margin-left: 20px;
+  margin-top: 10px;
+
+}
+
+.login-content .fb-login img {
+  margin-right: 10px;
+  width: 10px;
+}
+
+.login-content .google-login img {
+  margin-right: -10px;
+  width: 18px;
+}
+
+.login-content .fb-login {
+  background: #2553B4;
+  color: #fff;
+}
+
+.login-content .google-login {
+  background: #fff;
+  color: #757575;
+}
+
+
+/* --------------------------------
+7. My account page style
+-------------------------------- */
+
+.profile.hero-banner {
+  background: rgba(0, 0, 0, 0) url("../images/mountains2.jpg") no-repeat scroll center center / cover ;
+  height: calc(100vh + 200px);
+  position: relative;
+}
+
+.profile .inner {
+  background: rgba(0, 0, 0, 0.4);
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.profile .gradient {
+  background: rgba(0, 0, 0, 0) url("../images/gradient.png") repeat-x scroll left bottom;
+  bottom: 0;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.profile-content {
+  margin-top: 200px;
+  padding: 50px 0;
+  position: relative;
+  text-align: center;
+  z-index: 3;
+}
+
+.profile-photo {
+  display: block;
+  margin: 0 auto;
+  width: 140px;
+}
+
+.profile-photo img{
+  width: 100%;
+}
+
+.profile-title {
+  color: #fff;
+  font-family: "aktiv_grotesk_hair",sans-serif;
+  font-size: 60px;
+  line-height: 76px;
+  margin: 40px auto;
+}
+
+.profile-update-form{
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: block;
+  font-family: "aktiv_grotesk_thin",sans-serif;
+}
+
+.profile-update-form .control-label {
+  color: #01dd60;
+  font-family: "aktiv_grotesk_thin",sans-serif;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  line-height: 22px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.profile-update-form .form-control {
+  border-radius: 0;
+  font-family: "aktiv_grotesk_thin",sans-serif;
+  font-size: 21px;
+  height: 40px;
+  letter-spacing: 0.5px;
+  max-width: 370px;
+  width: 100%;
+}
+
+.profile-update-form .small-pp {
+  margin: 0;
+  width: 80px;
+  padding: 0;
+}
+
+.profile-update-form .small-pp  img{
+  width: 64px;
+  float: left;
+}
+
+.profile-update-form .update-pp input {
+  height: 60px;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.profile-update-form .update-pp span {
+  border: 1px solid #9b9b9b;
+  border-radius: 2px;
+  color: #9b9b9b;
+  cursor: pointer;
+  font-size: 14px;
+  left: 20px;
+  letter-spacing: 1px;
+  padding: 6px 12px;
+  position: absolute;
+  text-transform: uppercase;
+  top: 13px;
+}
+
+.profile-update-form .remove-pp a{
+  border: 1px solid #9b9b9b;
+  border-radius: 2px;
+  color: #9b9b9b;
+  cursor: pointer;
+  font-size: 14px;
+  left: -90px;
+  letter-spacing: 1px;
+  padding: 6px 12px;
+  position: absolute;
+  text-decoration: none;
+  text-transform: uppercase;
+  top: 13px;
+  z-index: 3;
+}
+
+.profile-update-form .form-group {
+  margin: 40px auto;
+}
+
+.profile-update-form .update-account {
+  margin: 100px auto;
+}
+
+.profile-update-form .update-account .btn {
+  background: transparent none repeat scroll 0 0;
+  border: 1px solid #01dd60;
+  border-radius: 0;
+  color: #01dd60;
+  font-family: "aktiv_grotesk_thin",sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 6px 12px;
+  text-transform: uppercase;
+}
+/** Login Screen **/
+
+.login-form{
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: block;
+    font-family: "aktiv_grotesk_thin",sans-serif;
+}
+
+.login-form .control-label {
+    color: #01dd60;
+    font-family: "aktiv_grotesk_thin",sans-serif;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    line-height: 22px;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+.login-form .form-control {
+    border-radius: 0;
+    font-family: "aktiv_grotesk_thin",sans-serif;
+    font-size: 21px;
+    height: 40px;
+    letter-spacing: 0.5px;
+    max-width: 370px;
+    width: 100%;
+}
+
+.login-form .small-pp {
+    margin: 0;
+    width: 80px;
+    padding: 0;
+}
+
+.login-form .small-pp  img{
+    width: 64px;
+    float: left;
+}
+
+.login-form .update-pp input {
+    height: 60px;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+    cursor: pointer;
+}
+
+.login-form .update-pp span {
+    border: 1px solid #9b9b9b;
+    border-radius: 2px;
+    color: #9b9b9b;
+    cursor: pointer;
+    font-size: 14px;
+    left: 20px;
+    letter-spacing: 1px;
+    padding: 6px 12px;
+    position: absolute;
+    text-transform: uppercase;
+    top: 13px;
+}
+
+.login-form .remove-pp a{
+    border: 1px solid #9b9b9b;
+    border-radius: 2px;
+    color: #9b9b9b;
+    cursor: pointer;
+    font-size: 14px;
+    left: -90px;
+    letter-spacing: 1px;
+    padding: 6px 12px;
+    position: absolute;
+    text-decoration: none;
+    text-transform: uppercase;
+    top: 13px;
+    z-index: 3;
+}
+
+.login-form .form-group {
+    margin: 40px auto;
+}
+
+.login-form .form-group .login-field{
+    width: 60%;
+}
+
+.login-form .login-submit .btn {
+    background: transparent none repeat scroll 0 0;
+    border: 1px solid #01dd60;
+    border-radius: 0;
+    color: #01dd60;
+    font-family: "aktiv_grotesk_thin",sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 6px 12px;
+    text-transform: uppercase;
+    margin-left: 30%;
+}
+
+/** Photo Album **/
+#photo-list {
+  background: rgba(255, 255, 255, 0.95) none repeat scroll 0 0;
+  cursor: pointer;
+  left: 0;
+  opacity: 0;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  visibility: hidden;
+  width: 100%;
+  -webkit-transform: translateZ(0);
+  height: 100%;
+  overflow: hidden;
+  z-index: 10;
+}
+#photo-list .photo-gallery {
+  position: relative;
+  max-height: 100em;
+  max-width: 110%;
+  height: 75%;
+  text-align: center;
+  padding: 4em 5% 2em 5%;
+}
+@media only screen and (max-width: 599px) and (min-width: 0) {
+  #photo-list .photo-gallery {
+    padding: .5em 1% 10% 1%;
+  }
+}
+#photo-list .photo-gallery .crumb-trail {
+  background-color: white;
+  opacity: .8;
+}
+@media only screen and (max-width: 599px) and (min-width: 0) {
+  #photo-list .photo-gallery .crumb-trail {
+    font-size: .8em;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+  }
+}
+#photo-list .photo-gallery #display-photo-left-arrow {
+  display: inline;
+  position: absolute;
+  top: 40%;
+  left: 0;
+  z-index: 1;
+}
+@media only screen and (max-width: 599px) and (min-width: 0) {
+  #photo-list .photo-gallery #display-photo-left-arrow {
+    max-width: 20%;
+  }
+}
+#photo-list .photo-gallery #display-photo-right-arrow {
+  display: inline;
+  position: absolute;
+  top: 40%;
+  right: 0;
+  z-index: 1;
+}
+@media only screen and (max-width: 599px) and (min-width: 0) {
+  #photo-list .photo-gallery #display-photo-right-arrow {
+    max-width: 20%;
+  }
+}
+#photo-list .photo-gallery #display-photo {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  bottom: 0;
+}
+#photo-list .photo-gallery .hover-arrows {
+  opacity: 0.0;
+}
+#photo-list .photo-gallery .hover-arrows:hover {
+  opacity: 1;
+}
+#photo-list .photo-gallery:hover .hover-arrows {
+  opacity: 0.6;
+}
+#photo-list .gallery-x {
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  z-index: 4;
+}
+#photo-list .gallery-x img {
+  position: relative;
+}
+#photo-list #photo-list-wrapper {
+  display: block;
+  position: fixed;
+  bottom: 0;
+}
+#photo-list #photo-list-wrapper .hover-arrows {
+  opacity: 0.5;
+}
+#photo-list #photo-list-wrapper #photo-list-right-arrow {
+  position: absolute;
+  bottom: 2em;
+  right: -3.5em;
+  z-index: 3;
+}
+#photo-list #photo-list-wrapper #photo-list-right-arrow img {
+  position: relative;
+  width: 50%;
+}
+#photo-list #photo-list-wrapper #photo-list-left-arrow {
+  position: absolute;
+  bottom: 2em;
+  left: 0em;
+  z-index: 3;
+}
+#photo-list #photo-list-wrapper #photo-list-left-arrow img {
+  position: relative;
+  width: 50%;
+}
+#photo-list #photo-list-wrapper #photo-list-ul {
+  width: 30000%;
+  position: relative;
+}
+#photo-list #photo-list-wrapper #photo-list-ul .inline-list {
+  display: -webkit-inline-box;
+  display: inline-flex;
+}
+#photo-list #photo-list-wrapper #photo-list-ul .inline-list .thumb-img {
+  width: 100%;
+}
+#photo-list #photo-list-wrapper #photo-list-ul .inline-list .selected {
+  border: .3em #ff8233 solid;
+}
+#photo-list #photo-list-wrapper:hover .hover-arrows {
+  opacity: 1;
+}
+#photo-list .movie-player {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 3em;
+}
+#photo-list .movie-player video {
+  max-width: 100%;
+}
+#photo-list.is-visible {
+  visibility: visible;
+  opacity: 1;
+}
+.adjustment-controls-panel {
+  z-index: 10;
+  border: #cccccc 2px solid;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1em;
+  -webkit-border-radius: 0.5em 0.5em 0.5em 0.5em;
+  -moz-border-radius: 0.5em 0.5em 0.5em 0.5em;
+  -ms-border-radius: 0.5em 0.5em 0.5em 0.5em;
+  border-radius: 0.5em 0.5em 0.5em 0.5em;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  right: 3.1%;
+  text-align: center;
+  display: block;
+  background-color: #fff;
+  padding: .5em;
+  width: 10em;
+}
+.adjustment-controls-panel .close-button {
+  float: right;
+}
+#upload-panel {
+  top: 9.5em;
+  display: none;
+  width: 35em;
+}
+#loading {
+  /*display: inline;
+  font-family: "Arial Rounded MT Bold", sans-serif;
+  font-size: 1.5em;
+  margin-left: 2em;*/
+}
+#result {
+  display: none;
+  float: left;
+}
+#result .upload-thumb {
+  display: inline;
+  float: left;
+  padding: .5em;
+  height: 12em;
+  width: 11em;
+  margin-left: auto;
+  margin-right: auto;
+}
+#result .upload-thumb img {
+  max-width: 128px;
+  max-height: 128px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: initial;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+#result .upload-thumb .selected {
+  border: 3px solid #00974c;
+}
+#result .upload-thumb .file-size {
+  text-align: center;
+}
+form #upload-thumb-proto {
+  display: none;
+}
+
+
+
+
+
+
+
+
+.page.hero-banner {
+  background: #222 none repeat scroll 0 0;
+  height: auto;
+  padding: 150px 0 50px;
+  position: relative;
+}
+
+.page.hero-banner::after {
+  background: rgba(0, 0, 0, 0) url("../images/nginx-connect.png") repeat scroll center center;
+  bottom: 0;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.page .inner {
+  background: rgba(0, 0, 0, 0.4);
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.page-header, .page-content {
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.page-header {
+  padding: 100px 0;
+  text-align: center;
+}
+
+.page-header, .page-content {
+  margin: 0 auto;
+  max-width: 900px;
+  position: relative;
+  width: 80%;
+  z-index: 2;
+}
+
+.page-header .page-title-icon {
+  display: block;
+  margin: 0 auto;
+  width: 44px;
+}
+
+.page-header .page-title {
+  color: #fff;
+  font-family: "aktiv_grotesk_hair",sans-serif;
+  font-size: 60px;
+  line-height: 76px;
+  margin: 60px 0 35px;
+}
+
+.page-header .learn-more-btn {
+  border: 1px solid #01dd60;
+  color: #01dd60;
+  font-family: "aktiv_grotesk_thin",sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 8px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.page-content {
+  margin: 0 auto;
+  text-align: left;
+  font-family: "aktiv_grotesk_thin",sans-serif;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 60px;
+}
+.page-content h2 {
+  color: #01dd60;
+  font-family: "aktiv_grotesk_thin",sans-serif;
+  font-size: 30px;
+  line-height: 34px;
+  margin-bottom: 15px;
+}
+
+.page-content p {
+  color: #fff;
+  font-size: 24px;
+  line-height: 34px;
+}
+
+.page-content hr {
+  border-color: #4a4a4a;
+  border-width: 1px;
+  margin: 30px auto;
+}
+
+.page-content img {
+  display: block;
+  margin: 30px auto;
+  max-width: 100%;
+  width: auto;
+}
+
+/* --------------------------------
+9. Single Post style
+-------------------------------- */
+
+.post-hero-banner {
+  background: url("../images/post-cover.png") no-repeat scroll center center / cover;
+}
+
+.post-header {
+  border-bottom: 1px solid #4a4a4a;
+  margin: 0 150px;
+  padding: 150px 0 100px;
+}
+
+.post-featured-image {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.single-post-title {
+  margin: 70px auto 0;
+  position: relative;
+}
+
+.single-post-title h1{
+  color: #01dd60;
+  font-family: "aktiv_grotesk_thin",sans-serif;
+  font-size: 60px;
+  letter-spacing: 1.35px;
+  line-height: 76px;
+  text-align: center;
+}
+
+.post-navigation img {
+  height: 53px;
+}
+
+.post-navigation .post-prev {
+  position: absolute;
+  left: 0;
+  top: 10px;
+}
+
+.post-navigation .post-next {
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+
+.single-post-meta {
+  color: #9B9B9B;
+  font-family: "aktiv_grotesk_thin",sans-serif;
+  display: block;
+  margin: 0 auto;
+  width: 400px;
+}
+
+.single-post-meta h4 {
+  color: #9B9B9B;
+  font-size: 18px;
+  line-height: 22px;
+
+}
+
+.single-post-meta .author-meta img {
+  margin-right: 15px;
+  margin-top: 6px;
+  width: 28px;
+}
+
+.single-post-meta .author-meta h4 {
+  margin-right: 40px;
+}
+
+.single-post-meta .date-meta p {
+  line-height: 43px;
+}
+
+.single-post-meta .place-meta img {
+  margin-left: 10px;
+  margin-top: 5px;
+  width: 30px;
+}
+
+.post-content {
+  margin: 0 auto;
+  padding: 70px 10% 10px;
+}
+
+.post-content .content-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: block;
+}
+
+
+.post-content, .post-content p {
+  color: #fff;
+  font-family: "aktiv_grotesk_thin",sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.35px;
+  line-height: 33px;
+}
+
+.post-content p:first-child::first-letter {
+  float: left;
+  font-family: "aktiv_grotesk_hair",sans-serif;
+  font-size: 72px;
+  margin-right: 10px;
+  margin-top: 12px;
+}
+
+.post-content img {
+  display: block;
+  margin: 30px auto;
+  max-width: 100%;
+  width: auto;
+}
+
+
+/* --------------------------------
+10.a. Photos page style
+-------------------------------- */
+
+.photos.hero-banner {
+  background: #333;
+}
+
+.photos.hero-banner {
+  background: rgba(0, 0, 0, 0) url("../images/mountains2.jpg") no-repeat scroll center center / cover ;
+  height: 650px;
+  position: relative;
+}
+
+.photos .inner {
+  background: rgba(0, 0, 0, 0.4);
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.photos .gradient {
+  background: rgba(0, 0, 0, 0) url("../images/gradient.png") repeat-x scroll left bottom;
+  bottom: 0;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.albums {
+  padding-bottom: 100px;
+}
+
+.albums .page-content .page-title {
+  color: #01dd60;
+  font-family: "aktiv_grotesk_hair",sans-serif;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.albums .page-content {
+  max-width: 100%;
+  width: 100%;
+  /*padding: 0 140px;*/
+  padding: 0 60px;
+}
+
+.albums .album-container, .albums .cat-album-container {
+  padding: 70px 0;
+}
+
+.albums .album-thumb {
+  /*padding: 0 25px;
+  height: 228px;*/
+  padding: 0 10px !important;
+  height: 230px;
+}
+
+.albums .album-thumb figure {
+  max-height: 300px;
+  margin: 0;
+  overflow: hidden;
+  width: 150px;
+  height: 150px;
+}
+
+.albums .album-thumb a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.albums .album-thumb img {
+  /*height: 90px;
+  max-width: 100%;*/
+  /*height: 150px;
+    width: 150px;*/
+    margin-bottom: 0px;
+    width: 100%;
+}
+
+.albums .album-thumb .album-caption {
+  color: #01dd60;
+  font-family: "aktiv_grotesk_thin",sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  margin: 20px auto 0;
+  text-align: center;
+}
+
+.add-cover {
+  bottom: 75px;
+  left: 150px;
+  position: absolute;
+}
+
+.add-cover img {
+  float: left;
+  width: 32px;
+}
+
+.add-cover p {
+  color: #9b9b9b;
+  float: left;
+  font-family: "aktiv_grotesk_thin",sans-serif;
+  font-size: 14px;
+  line-height: 15px;
+  margin-left: 15px;
+  text-align: left;
+  opacity: 0;
+}
+
+
+.add-cover p {
+  opacity: 1; /* If no cover photo */
+}
+
+.footer-content h2 {
+  color: #fff;
+}
+
+
+/* --------------------------------
+10.b. Single Album page style
+-------------------------------- */
+
+.single-album.hero-banner {
+  background: rgba(0, 0, 0, 0) url("../images/single-album-cover.png") no-repeat scroll center center / cover ;
+  height: 300px;
+  padding-top: 150px;
+  position: relative;
+}
+
+.single-album .header-content {
+  position: relative;
+  text-align: center;
+  z-index: 3;
+}
+
+.albums.album-single {
+  padding-bottom: 170px;
+}
+
+.single-album .header-content .page-title {
+  font-family: "aktiv_grotesk_hair",sans-serif;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  line-height: 22px;
+  text-transform: uppercase;
+}
+
+.single-album .header-content .album-title {
+  color: #fff;
+  font-family: "aktiv_grotesk_hair",sans-serif;
+  font-size: 50px;
+  letter-spacing: 1px;
+  line-height: 60px;
+  margin: 20px auto;
+}
+
+.back-to-photos, .back-to-photos:hover {
+  clear: both;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  width: 175px;
+}
+
+.back-to-photos a, .back-to-photos a:hover {
+  border: 1px solid #01dd60;
+  color: #01dd60;
+  font-family: "aktiv_grotesk_thin",sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-top: 120px;
+  padding: 5px 10px;
+  position: absolute;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.photo-title {
+  color: #01dd60;
+  font-family: "aktiv_grotesk_thin",sans-serif;
+  font-size: 60px;
+  letter-spacing: 1.35px;
+  line-height: 76px;
+  margin: 50px auto 30px;
+  text-align: center;
+}
+
+.album-meta {
+  color: #9B9B9B;
+  font-family: "aktiv_grotesk_thin",sans-serif;
+  display: block;
+  margin: 0 auto;
+  width: 400px;
+}
+
+.album-meta h4 {
+  color: #9b9b9b;
+  font-size: 18px;
+  line-height: 22px;
+  margin-top: 3px;
+}
+
+.album-meta .author-meta img {
+  margin-right: 15px;
+  margin-top: 0;
+  width: 28px;
+}
+
+.album-meta .author-meta h4 {
+  margin-right: 40px;
+}
+
+.album-meta .date-meta p {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.album-meta .place-meta img {
+  margin-left: 10px;
+  margin-top: 0;
+  width: 30px;
+}
+
+.back-to-album, .back-to-album:hover, .back-to-album:visited, .back-to-album:focus {
+  border: 1px solid #01dd60;
+  clear: both;
+  color: #01dd60;
+  display: block;
+  font-family: "aktiv_grotesk_thin",sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin: 120px auto 50px;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 160px;
+}
+
+/* Lightbox overwrite */
+
+
+
+/*.lg-backdrop.in {
+  background: rgba(0, 0, 0, 0) url("../images/gradient.png") no-repeat scroll center bottom / cover ;
+}*/
+
+.lg-outer .lg {
+  height: auto;
+  max-height: none;
+  max-width: 100%;
+  overflow: auto;
+  position: relative;
+  width: 100%;
+}
+
+.lg-outer .lg-inner {
+  padding-top: 150px;
+}
+
+
+.lg-sub-html {
+  background-color: #000;
+  bottom: auto;
+  color: #9b9b9b;
+  padding-bottom: 70px;
+  position: absolute;
+  top: 100%;
+  z-index: 1080;
+}
+
+.lg-actions .lg-next, .lg-actions .lg-prev {
+  top: calc(100% + 90px);
+  z-index: 9999;
+  opacity: 1;
+}
+
+.lg-actions .lg-next {
+  right: 290px;
+}
+
+.lg-actions .lg-prev {
+  left: 290px;
+}
+
+.lg-actions .lg-next::before {
+  background: url("../images/arrow-right.png") no-repeat scroll center center / 100% auto;
+  content: "";
+  height: 50px;
+  right: 0;
+  position: absolute;
+  top: 0;
+  width: 50px;
+}
+
+.lg-actions .lg-prev::after {
+  background: url("../images/arrow-left.png") no-repeat scroll center center / 100% auto;
+  content: "";
+  height: 50px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 50px;
+}
+
+.lg-toolbar {
+  display: none;
+}
+
+/* Add photo/album */
+
+.add-photo, .add-cover-photo, .add-album {
+  background: rgba(0, 0, 0, 0.9) none repeat scroll 0 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 9999;
+}
+
+.add-photo .profile-update-form,
+.add-cover-photo .profile-update-form,
+.add-album .profile-update-form {
+  margin-top: 75px;
+}
+
+.add-photo .page-title, .add-cover-photo .page-title, .add-album .page-title {
+  color: #fff;
+  font-family: "aktiv_grotesk_hair",sans-serif;
+  font-size: 60px;
+  line-height: 76px;
+  margin-bottom: 60px;
+  padding-top: 50px;
+  text-align: center;
+}
+
+
+.add-photo .profile-update-form .update-account,
+.add-cover-photo .profile-update-form .update-account,
+.add-album .profile-update-form .update-account {
+  display: block;
+  float: none;
+  margin: 20px auto;
+  width: 145px;
+}
+.add-cover-photo .profile-update-form .update-account {
+  width: 180px;
+}
+
+.select-album {
+  margin: 0;
+  padding: 0;
+}
+
+.add-photo, .add-cover-photo, .add-album {
+  transition: all .3s;
+}
+
+.profile-update-form .control-label {
+  text-shadow: none;
+}
+
+.add-photo .profile-update-form .update-pp span,
+.add-cover-photo .profile-update-form .update-pp span,
+.add-album .profile-update-form .update-pp span {
+  left: 0;
+  top: 0;
+}
+
+.profile-update-form select {
+  background: url("../images/arrow-down-light.png") no-repeat scroll right center/ 28px auto;
+  border: 1px solid #9b9b9b;
+  color: #9b9b9b;
+  padding-left: 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.profile-update-form select:focus {
+  outline: none;
+  box-shadow: none;
+  border: 1px solid #9b9b9b;
+}
+
+.profile-update-form .form-loading {
+  display: block;
+  float: none;
+  margin: 40px auto;
+  padding: 0;
+  width: 30px;
+  opacity: 0;
+}
+
+.profile-update-form .form-loading img {
+  display: block;
+  margin: 0 auto;
+  width: 30px;
+-webkit-animation: spin 2s infinite linear;
+-moz-animation: spin 2s infinite linear;
+-o-animation: spin 2s infinite linear;
+-ms-animation: spin 2s infinite linear;
+}
+
+@-webkit-keyframes spin {
+0% { -webkit-transform: rotate(0deg);}
+100% { -webkit-transform: rotate(360deg);}
+}
+@-moz-keyframes spin {
+0% { -moz-transform: rotate(0deg);}
+100% { -moz-transform: rotate(360deg);}
+}
+@-o-keyframes spin {
+0% { -o-transform: rotate(0deg);}
+100% { -o-transform: rotate(360deg);}
+}
+@-ms-keyframes spin {
+0% { -ms-transform: rotate(0deg);}
+100% { -ms-transform: rotate(360deg);}
+}
+
+.form-loading.show-loader{
+  opacity: 1;
+}
+
+.cancel-upload {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+}
+
+.cancel-upload img {
+  display: block;
+  margin: 0 auto;
+  width: 30px;
+}
+
+
+
+a:focus, a:active, 
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+select::-moz-focus-inner,
+select:-moz-focusring,
+input[type="file"] > input[type="button"]::-moz-focus-inner {
+    border: 0;
+    outline : 0;
+}
+
+/* Open/Close photo, cover photo, album popup */
+
+.add-photo.close,
+.add-cover-photo.close,
+.add-album.close {
+  opacity: 0;
+  display: none;
+}
+
+.add-photo.open, .add-cover-photo.open, .add-album.open {
+  display: block;
+  opacity: 1;
+  z-index: 999999;
+  overflow: auto;
+}
+
+.hide-overflow{
+  overflow: hidden;
+}
+
+
+/* Add loading animation */
+
+.show-loading {
+
+
+}
+
