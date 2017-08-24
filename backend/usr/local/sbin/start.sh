@@ -2,7 +2,7 @@
 
 NGINX_PID="/var/run/nginx.pid"
 
-nginx -c "/etc/nginx/nginx-router-mesh.conf" -g "pid $NGINX_PID;" &
+nginx -c "/etc/nginx/nginx.conf" -g "pid $NGINX_PID;" &
 echo "Started NGINX"
 
 sleep 30

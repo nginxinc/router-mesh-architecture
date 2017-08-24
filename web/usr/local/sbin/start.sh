@@ -1,7 +1,7 @@
 #!/bin/sh
 pid="/var/run/nginx.pid";
 fpm_pid="/var/run/php-fpm.pid";
-nginx_conf="/etc/nginx/nginx-fabric.conf";
+nginx_conf="/etc/nginx/nginx.conf";
 
 nginx -c "$nginx_conf" -g "pid $pid;" &
 echo "Started NGINX"

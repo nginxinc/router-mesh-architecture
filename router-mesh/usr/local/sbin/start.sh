@@ -1,6 +1,6 @@
 #!/bin/sh
 pid="/var/run/nginx.pid";
-nginx_conf="/etc/nginx/nginx-router-mesh.conf";
+nginx_conf="/etc/nginx/nginx.conf";
 
 nginx -c "$nginx_conf" -g "pid $pid;" &
 echo "Started NGINX"

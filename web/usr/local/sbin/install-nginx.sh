@@ -13,7 +13,7 @@ then
   apt-get update
   apt-get install -o Dpkg::Options::="--force-confold" -y nginx-plus
 
-  /usr/local/sbin/generate_config -p /etc/nginx/router-mesh_config.yaml -t /etc/nginx/nginx-plus-router-mesh.conf.j2 > /etc/nginx/nginx-router-mesh.conf
+  /usr/local/sbin/generate_config -p /etc/nginx/router-mesh_config.yaml -t /etc/nginx/nginx-plus-router-mesh.conf.j2 > /etc/nginx/nginx.conf
 else
   echo "Installing NGINX OSS"
 
@@ -23,5 +23,5 @@ else
   apt-get update
   apt-get install -o Dpkg::Options::="--force-confold" -y nginx
 
-  /usr/local/sbin/generate_config -p /etc/nginx/router-mesh_config.yaml -t /etc/nginx/nginx-router-mesh.conf.j2 > /etc/nginx/nginx-router-mesh.conf
+  /usr/local/sbin/generate_config -p /etc/nginx/router-mesh_config.yaml -t /etc/nginx/nginx-router-mesh.conf.j2 > /etc/nginx/nginx.conf
 fi
