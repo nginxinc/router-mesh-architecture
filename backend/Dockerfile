@@ -1,4 +1,4 @@
-FROM golang:latest
+FROM ruby:2.2.3
 
 RUN apt-get update && apt-get install -y \
 	apt-transport-https \
@@ -23,11 +23,14 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
 
 RUN mkdir -p /tmp/sockets
 
+# throw errors if Gemfile has been modified since Gemfile.lock
+RUN bundle config --global frozen 1
 
 RUN mkdir -p /usr/src/app/log
 WORKDIR /usr/src/app
 
 COPY app /usr/src/app
+RUN bundle install
 
 EXPOSE 80 443
 
