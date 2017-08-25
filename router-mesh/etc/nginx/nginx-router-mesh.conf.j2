@@ -10,6 +10,23 @@ events {
 
 
 http {
+
+    server {
+        listen 80;
+        #include /etc/nginx/conf.d/locations/*.conf;
+
+        {% for name,service in services.iteritems() %}
+            location =/{{ name }} {
+                proxy_pass {{ service.protocol }}://{{ name }}/;
+                proxy_connect_timeout 5s;
+                proxy_read_timeout 10s;
+            }
+            location /{{ name }}/ {
+                proxy_pass {{ service.protocol }}://{{ name }}/;
+            }
+        {% endfor %}
+    }
+
     include       /etc/nginx/mime.types;
     default_type  application/octet-stream;
 
@@ -20,14 +37,24 @@ http {
     access_log  /var/log/nginx/access.log  main;
 
     sendfile        on;
-    #tcp_nopush     on;
+    tcp_nopush     on;
 
-    keepalive_timeout  65;
+    keepalive_timeout 65;
 
-    #gzip  on;
+    gzip on;
 
-    include /etc/nginx/conf.d/*.conf;
-    include /etc/nginx/conf.d/upstreams/*.conf;
+#    include /etc/nginx/conf.d/*.conf;
+#    include /etc/nginx/conf.d/upstreams/*.conf;
+
+    {% for name, service in services.iteritems() %}
+        upstream {{ name }} {
+            {% if service.lb_method -%}
+            {{ service.lb_method }};
+            {% endif -%}
+            zone {{ name }} 64k;
+            server {{ service.server }}:{{ service.port }};
+        }
+    {% endfor %}
 }
 
 

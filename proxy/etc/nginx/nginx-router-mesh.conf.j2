@@ -35,7 +35,7 @@ http {
 
     {% for name, service in services.iteritems() %}
     upstream {{ name }} {
-        server        {{ service.server }};
+        server        {{ service.router_mesh.host }}:{{ service.router_mesh.port }};
         zone backend  64k;
         least_conn;
         keepalive 		300;
@@ -71,7 +71,7 @@ http {
 
         {% for name, service in services.iteritems() %}
         location /  {
-            proxy_pass https://{{ name }};
+            proxy_pass {{ service.scheme }}://{{ service.server }}/{{ service.server }}/;
             proxy_set_header Host {{ name }};
 
             proxy_ssl_session_reuse     on;
@@ -85,10 +85,6 @@ http {
             proxy_set_header Connection "";
             proxy_set_header Accept-Encoding "";
 	      }
-        {% endfor %}
-
-        {% for name, service in services.iteritems() if service.expose_external%}
-            {{ location(name) }}
         {% endfor %}
     }
 }

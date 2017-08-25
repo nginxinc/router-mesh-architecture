@@ -2,7 +2,7 @@
 pid="/var/run/nginx.pid";
 nginx_conf="/etc/nginx/nginx.conf";
 
-nginx -c "$nginx_conf" -g "pid $pid;" &
+nginx -c "$nginx_conf" &
 echo "Started NGINX"
 
 echo launched processes;

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-wget -q https://s3-us-west-1.amazonaws.com/fabric-model/config-generator/generate_config > /usr/local/sbin/generate_config
-chmod 755 /usr/local/sbin/generate_config
+#wget -q https://s3-us-west-1.amazonaws.com/fabric-model/config-generator/generate_config > /usr/local/sbin/generate_config
+#chmod 755 /usr/local/sbin/generate_config
 
 if [ "$USE_NGINX_PLUS" = true ];
 then

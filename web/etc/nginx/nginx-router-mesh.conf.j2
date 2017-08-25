@@ -1,20 +1,3 @@
-{% macro location(name) -%}
-    location /{{ name }}/ {
-        proxy_pass https://{{ name }}/;
-        proxy_set_header Host {{ name }};
-
-        proxy_ssl_session_reuse     on;
-        proxy_ssl_protocols         TLSv1.2;
-        proxy_ssl_verify            off;
-        proxy_read_timeout          3600;
-        proxy_connect_timeout       3600;
-
-        proxy_http_version 1.1;
-        proxy_set_header Connection "";
-        proxy_set_header Accept-Encoding "";
-    }
-{%- endmacro %}
-
 error_log /var/log/nginx/error.log debug;
 worker_processes  auto;
 
@@ -32,26 +15,8 @@ http {
     resolver_timeout 2s;
     client_max_body_size 30M;
 
-  {% if services is defined %}
-    {% for name, service in services.iteritems() %}
-    upstream {{ name }} {
-        server        {{ service.server }};
-        zone backend  64k;
-        least_conn;
-        keepalive 		300;
-    }
-    {% endfor %}
-  {% endif %}
-
     server {
         listen 80;
-
-    {% if services is defined %}
-      {% for name, service in services.iteritems() %}
-        {{ location(name) }}
-      {% endfor %}
-    {% endif %}
-
         location / {
             return         301 https://$host$request_uri;
         }
@@ -73,11 +38,5 @@ http {
         root {{ root }};
 
         include default-location.conf;
-
-        {% if services is defined %}
-          {% for name, service in services.iteritems() if service.expose_external%}
-            {{ location(name) }}
-          {% endfor %}
-        {% endif %}
     }
 }

@@ -4,8 +4,13 @@ resolver:
   ttl: 3s
 root: /usr/share/nginx/html/
 services:
-  router-mesh:
-    server: router-mesh:443
+  web:
+    server: web
+    port: 83
+    scheme: http
     expose_external: true
     healthcheck: true
     healthcheck_uri: /
+    router_mesh:
+      host: router-mesh
+      port: 80
