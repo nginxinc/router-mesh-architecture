@@ -7,7 +7,8 @@ RUN apt-get update && apt-get install -y -q \
 	apt-transport-https \
 	lsb-release \
 	vim \
-	wget
+	wget \
+	curl
 
 COPY etc /etc
 COPY usr /usr

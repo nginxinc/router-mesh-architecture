@@ -9,6 +9,7 @@ services:
       - "443:443"
     depends_on:
       - web
+      - backend
     container_name: rm_proxy
   web:
     build: web
@@ -39,3 +40,6 @@ services:
     ports:
       - "83:80"
     container_name: rm_router-mesh
+    depends_on:
+      - web
+      - backend

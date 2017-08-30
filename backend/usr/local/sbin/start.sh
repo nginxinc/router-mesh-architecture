@@ -1,7 +1,5 @@
 #!/bin/sh
 
-NGINX_PID="/var/run/nginx.pid"
-
 APP_PID=/var/run/unicorn.pid
 
 if [  -f "$APP_PID" ]; then
@@ -10,13 +8,11 @@ if [  -f "$APP_PID" ]; then
 fi
 
 unicorn -c /usr/src/app/unicorn.rb -D
-
-nginx -c "/etc/nginx/nginx.conf" -g "pid $NGINX_PID;" &
-echo "Started NGINX"
+echo "Started unicorn"
 
 sleep 30
 
-while [ -f "$NGINX_PID" ]
+while [ -f "$APP_PID" ]
 do
 	sleep 5
 done

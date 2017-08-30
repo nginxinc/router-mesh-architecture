@@ -6,18 +6,18 @@ root: /app/web
 router_mesh_port: 83
 services:
   backend:
-    protocol: https
+    protocol: http
     service_name: backend_service
     server: backend
-    port: 443
+    port: 8080
     expose_external: true
     healthcheck: true
     healthcheck_uri: /
   web:
-    protocol: https
+    protocol: http
     service_name: web_service
     server: web
-    port: 443
+    port: 8080
     expose_external: true
     healthcheck: true
     healthcheck_uri: /
