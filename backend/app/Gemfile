@@ -1,0 +1,13 @@
+source 'http://rubygems.org'
+
+gem 'sinatra'
+gem 'sinatra-reloader'
+gem 'json'
+
+group :development, :test do
+  gem 'better_errors'
+end
+
+group :production do
+  gem 'unicorn'
+end

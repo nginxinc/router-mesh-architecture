@@ -1,0 +1,16 @@
+name: proxy
+resolver:
+  host: 127.0.0.11
+  ttl: 3s
+root: /usr/share/nginx/html/
+services:
+  web:
+    server: web
+    port: 83
+    scheme: http
+    expose_external: true
+    healthcheck: true
+    healthcheck_uri: /
+    router_mesh:
+      host: router-mesh
+      port: 80
