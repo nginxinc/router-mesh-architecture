@@ -2,6 +2,7 @@ FROM ubuntu:14.04
 
 MAINTAINER NGINX Docker Maintainers "docker-maint@nginx.com"
 
+ENV USE_NGINX_PLUS=false
 
 # Set the debconf front end to Noninteractive
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections && \
