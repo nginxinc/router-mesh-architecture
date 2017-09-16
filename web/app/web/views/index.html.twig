@@ -1,0 +1,76 @@
+
+<head>
+    <title>{{ content.title }}</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <meta NAME="keywords" CONTENT="NGINX, NGINX Plus, MRA, Reference Architecture">
+    <meta NAME="description" CONTENT="The NGINX Microservices Reference Architecture">
+
+    <link rel="icon" type="image/png" href="https://www.nginx.com/wp-content/themes/nginx-theme/assets/images/nginx-favicon.png">
+
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/fonts.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/responsive.css">
+
+</head>
+
+<body>
+<main role="main">
+
+    <header class="fixed-top-header">
+
+        <div class="header-logo">
+            <a href="/"><img src="/images/logo.png"></a>
+        </div>
+
+        <div class="right-nav-btn">
+        </div>
+
+    </header> <!-- ./header end-->
+
+    <section id="about" class="page hero-banner">
+        <div class="inner"></div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="page-header">
+                    <h1 class="page-title">{{ content.title }}</h1>
+                    <a class="learn-more-btn" href="#">{{ content.author }}</a>
+                </div>
+                <div class="page-gradient"></div>
+                <div class="page-content">
+                    <h2>{{ content.date }}</h2>
+                    <p>{{ content.body |replace({'\n': '<br>',"’":"&rsquo;"}) | raw}}</p>
+
+                    <img src="/images/diagram.png">
+
+                </div>
+            </div>
+        </div> <!--./end container-->
+    </section><!-- ./ end post content-->
+
+    <footer class="colophon-bottom">
+        <div class="footer-inner">
+            <div class="footer-content">
+                <h2>an NGINX microservices project</h2>
+                <img class="footer-logo" src="/images/nginx-logo.png">
+                <p class="footer-copyright">Copyright &copy; 2017, NGINX Corp., all rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</main>
+
+<!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- ./Scripts -->
+
+</body>
+
+</html>

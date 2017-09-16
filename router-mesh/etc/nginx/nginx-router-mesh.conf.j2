@@ -1,0 +1,63 @@
+worker_processes  auto;
+
+error_log  /var/log/nginx/error.log notice;
+pid        /var/run/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+
+    server {
+        listen 80;
+        #include /etc/nginx/conf.d/locations/*.conf;
+
+        {% for name,service in services.iteritems() %}
+            location =/{{ name }} {
+                proxy_pass {{ service.protocol }}://{{ name }}/;
+                proxy_connect_timeout 5s;
+                proxy_read_timeout 10s;
+            }
+            location /{{ name }}/ {
+                proxy_pass {{ service.protocol }}://{{ name }}/;
+            }
+        {% endfor %}
+    }
+
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile        on;
+    tcp_nopush     on;
+
+    keepalive_timeout 65;
+
+    gzip on;
+
+#    include /etc/nginx/conf.d/*.conf;
+#    include /etc/nginx/conf.d/upstreams/*.conf;
+
+    {% for name, service in services.iteritems() %}
+        upstream {{ name }} {
+            {% if service.lb_method -%}
+            {{ service.lb_method }};
+            {% endif -%}
+            zone {{ name }} 64k;
+            server {{ service.server }}:{{ service.port }};
+        }
+    {% endfor %}
+}
+
+
+# TCP/UDP proxy and load balancing block
+#
+include /etc/nginx/conf.d/streams/*.conf;
