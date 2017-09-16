@@ -4,6 +4,7 @@ The [Router Mesh](https://www.nginx.com/blog/microservices-reference-architectur
 
 The Router Mesh places NGINX as a reverse proxy server in front of application servers in addition to a single instance of NGINX or NGINX Plus which is configured to route requests to all of the microservices in the system.
 
+![Router Mesh Design](https://cdn-1.wp.nginx.com/wp-content/uploads/2016/11/Router-Mesh-Model_NGINX-Microservices-Reference-Architecture.png "Router Mesh Visualized")
 
 ## Structure of the Router Mesh Deployment
 
@@ -20,7 +21,7 @@ This repository consists of a single docker-compose.yml file which creates four 
     1. As you might expect by its name, the Router Mesh container is the core of the Router Mesh Architecture. The Router Mesh instance of NGINX is configured with connection information for all of the services in the architecture, and manages requests between them.
 
 1. Web
-    1. The web container is a simple PHP application consisting of a single web page rendered dynamically by a twig template. The content for the template comes from a request that the PHP class makes to the backend container
+    1. The web container is a simple PHP application consisting of a single web page rendered dynamically by a twig template served by the PHP 5 built-in server. The content for the template comes from a request that the PHP class makes to the backend container
 
 1. Backend
     1. The backend container is a simple rails app that runs on unicorn. Requests to the ```/backend``` route will render the static content that is defined in the app.rb.
@@ -30,15 +31,15 @@ This repository consists of a single docker-compose.yml file which creates four 
 * Git
 * [Docker](https://www.docker.com/community-edition) 1.13.0+
 * NGINX Plus Developer License, if using NGINX Plus in a test or development environment (see [Deploying with NGINX
-   Plus](https://github.com/nginxinc/mra-routermesh/#deploying-with-nginx-plus))
+   Plus](https://github.com/nginxinc/router-mesh-architecture/#deploying-with-nginx-plus))
 
 ### <a href="#" id="deploying-with-nginx"></a>Deploying With Open Source NGINX
 
-1. Clone the repository and change into the project directory. You can also download the repository as a ZIP file from [here](https://github.com/nginxinc/mra-routermesh/archive/master.zip).
+1. Clone the repository and change into the project directory. You can also download the repository as a ZIP file from [here](https://github.com/nginxinc/router-mesh-architecture/archive/master.zip).
 
    ```
-   git clone git@github.com:nginxinc/mra-routermesh.git
-   cd mra-routermesh
+   git clone git@github.com:nginxinc/router-mesh-architecture.git
+   cd router-mesh-architecture
    ```
 2. Build the microservice images
    ```
@@ -54,7 +55,7 @@ This repository consists of a single docker-compose.yml file which creates four 
 
 After you dismiss the warning, this appears in the browser window:
 
-![Router Mesh Architecture Homepage](https://github.com/nginxinc/mra-routermesh/blob/master/router_mesh_home.png "Router Mesh Home Page")
+![Router Mesh Architecture Homepage](https://github.com/nginxinc/router-mesh-architecture/blob/master/router_mesh_home.png "Router Mesh Home Page")
 
 The shell/terminal window where you ran the ```docker-compose``` command will contain output from the NGINX instances running in the containers, indicating that the instances are handling requests.
 
@@ -67,13 +68,12 @@ For production deployments of the Router Mesh, you need to run NGINX Plus instea
 
 You can, of course, use NGINX Plus in a development or test environment as well as in production. For development and test use cases, you qualify for a free NGINX Plus Developer License, which you can request [here](https://www.nginx.com/developer-license/). For production use cases, you must have a [paid NGINX Plus subscription](https://www.nginx.com/products/pricing/).
 
-To deploy the Router Mesh with NGINX Plus, first perform the steps in [Deploying with Open Source NGINX](https://github.com/nginxinc/mra-routermesh/#deploying-with-nginx-plus) then, perform the following steps:
+To deploy the Router Mesh with NGINX Plus, first perform the steps in [Deploying with Open Source NGINX](https://github.com/nginxinc/router-mesh-architecture/#deploying-with-nginx-plus) then, perform the following steps:
 
 Download the **nginx-repo.crt** and **nginx-repo.key** files for your NGINX Plus Developer License or subscription, and move them to the root directory of this project. You can then copy both of these files to the `/etc/nginx/ssl` directory of each microservice using the commands below:
 ```
-cp nginx-repo.crt nginx-repo.key <path-to-repository>/mra-routermesh/proxy/etc/ssl/nginx
-cp nginx-repo.crt nginx-repo.key <path-to-repository>/mra-routermesh/web/etc/ssl/nginx
-cp nginx-repo.crt nginx-repo.key <path-to-repository>/mra-routermesh/backend/etc/ssl/nginx
+cp nginx-repo.crt nginx-repo.key <path-to-repository>/router-mesh-architecture/proxy/etc/ssl/nginx
+cp nginx-repo.crt nginx-repo.key <path-to-repository>/router-mesh-architecture/router-mesh/etc/ssl/nginx
 ```
 You will also need to modify each Dockerfile to install NGINX Plus. In each Dockerfile, change the value of the `USE_NGINX_PLUS` environment variable from `false` to `true`
 ```
@@ -82,10 +82,9 @@ ENV USE_NGINX_PLUS=true
 The locations of the Dockerfiles with the environment variable are:
 ```
 proxy/Dockerfile
-web/Dockerfile
-backend/Dockerfile
+router-mesh/Dockerfile
 ```
-In this early release of the Router Mesh repository, your SSL certificate and key files must be named **certificate.pem** and **key.pem**. This will change in the future. 
+In this early release of the Router Mesh repository, your SSL certificate and key files must be named **certificate.pem** and **key.pem.** **_This will change in a future release._** 
 
 Rename the certificate and key files to **certificate.pem** and **key.pem**, respectively
 ```
@@ -95,9 +94,8 @@ cp <key-file-name> key.pem
 ```
 Copy the newly renamed certificate and key files to each of the containers in order to make sure that the self-signed certificate warning does not occur:
 ```
-cp certificate.pem key.pem <path-to-repository>/mra-routermesh/backend/etc/ssl/nginx/
-cp certificate.pem key.pem <path-to-repository>/mra-routermesh/proxy/etc/ssl/nginx/
-cp certificate.pem key.pem <path-to-repository>/mra-routermesh/web/etc/ssl/nginx/
+cp certificate.pem key.pem <path-to-repository>/router-mesh-architecture/proxy/etc/ssl/nginx/
+cp certificate.pem key.pem <path-to-repository>/router-mesh/router-mesh/etc/ssl/nginx/
 ```
 Then rebuild all of the microservice images
 ```
@@ -109,11 +107,13 @@ docker-compose up
 ```
 When you open https://localhost in your browser, you should see the same message and page that is displayed in [Step 6](#step-six) above.
 
-In a browser, navigate to https://localhost/status.html and you will see the [server status information](https://www.nginx.com/products/live-activity-monitoring/). Note that this feature is only available with NGINX Plus.
+If you are using NGINX Plus, navigate to https://localhost/status.html and you will see the [server status information](https://www.nginx.com/products/live-activity-monitoring/). 
 
 ## Authors
 * **Chris Stetson** - [cstetson](https://github.com/cstetson)
 * **Charles Pretzer** - [cpretzer](https://github.com/cpretzer)
-See also the list of [contributors](https://github.com/nginxinc/mra-routermesh/contributors) who participated in this project.
+* **Chris Graham** - [cpretzer](https://github.com/cjgraham95)
+
+See also the list of [contributors](https://github.com/nginxinc/router-mesh-architecture/contributors) who participated in this project.
 ## License
 This project is licensed under the BSD 2-Clause License - see the [LICENSE](LICENSE) file for details
