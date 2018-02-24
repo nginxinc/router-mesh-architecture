@@ -19,16 +19,18 @@ http {
                       '"$http_user_agent" "$http_x_forwarded_for"';
 
     access_log  /var/log/nginx/access.log  main;
+    resolver {{ resolver.host }} valid={{ resolver.ttl }};
+
+    proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=rm_cache:1m max_size=1g
+                     inactive=60m use_temp_path=off;
 
     server {
-        listen {{ router_mesh_port }};
-        status_zone server-{{ router_mesh_port }};
-        #include /etc/nginx/conf.d/locations/*.conf;
+        listen 80 default_server;
+        status_zone router-mesh;
 
         {% for name,service in services.iteritems() %}
             location =/{{ name }} {
                 proxy_pass {{ service.protocol }}://{{ name }}/;
-                health_check {% if health_check_uri %}uri={{ health_check_uri }} {% endif %}interval=5s fails=3;
                 proxy_cache rm_cache;
                 proxy_cache_valid 200 5m;
                 proxy_cache_use_stale http_502 http_503;
@@ -37,6 +39,7 @@ http {
             }
             location /{{ name }}/ {
                 proxy_pass {{ service.protocol }}://{{ name }}/;
+# health_check {% if health_check_uri %}uri={{ health_check_uri }} {% endif %}interval=5s fails=3;
             }
         {% endfor %}
     }
@@ -58,7 +61,7 @@ http {
             {{ service.lb_method }};
             {% endif -%}
             zone {{ name }} 64k;
-            server {{ name }} service=_{{ service_name }}._tcp resolve;
+            server {{ service.server }}:{{ service.port }};
         }
     {% endfor %}
 

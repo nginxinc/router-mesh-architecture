@@ -31,6 +31,8 @@ RUN mkdir -p /etc/ssl/nginx && \
 # forward request logs to Docker log collector
     mkdir -p /var/log/nginx && \
     chmod a+w /var/log/nginx && \
+    mkdir -p /var/cache/nginx && \
+    chmod a+w /var/cache/nginx && \
     ln -sf /dev/stdout /var/log/nginx/access.log && \
     ln -sf /dev/stdout /var/log/nginx/error.log
 

@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
 
 COPY usr /usr
 
-ENV BACKEND_ENDPOINT_URL="http://localhost/backend"
+ENV BACKEND_ENDPOINT_URL="http://router-mesh/backend"
 
 # install application
 COPY app /app
