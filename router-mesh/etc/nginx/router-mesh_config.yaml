@@ -10,7 +10,7 @@ services:
     service_name: backend_service
     server: backend
     port: 8080
-    expose_external: true
+    expose_external: false
     healthcheck: true
     healthcheck_uri: /
   web:
@@ -18,7 +18,7 @@ services:
     service_name: web_service
     server: web
     port: 8080
-    expose_external: true
+    expose_external: false
     healthcheck: true
     healthcheck_uri: /
 streams:
