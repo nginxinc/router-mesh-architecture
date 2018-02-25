@@ -3,7 +3,6 @@ worker_processes  auto;
 error_log  /var/log/nginx/error.log notice;
 pid        /var/run/nginx.pid;
 
-
 events {
     worker_connections  1024;
 }
@@ -13,7 +12,6 @@ http {
 
     server {
         listen 80;
-        #include /etc/nginx/conf.d/locations/*.conf;
 
         {% for name,service in services.iteritems() %}
             location =/{{ name }} {
@@ -43,9 +41,6 @@ http {
 
     gzip on;
 
-#    include /etc/nginx/conf.d/*.conf;
-#    include /etc/nginx/conf.d/upstreams/*.conf;
-
     {% for name, service in services.iteritems() %}
         upstream {{ name }} {
             {% if service.lb_method -%}
@@ -59,5 +54,4 @@ http {
 
 
 # TCP/UDP proxy and load balancing block
-#
 include /etc/nginx/conf.d/streams/*.conf;

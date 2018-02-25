@@ -13,7 +13,6 @@ ENV BACKEND_ENDPOINT_URL="http://localhost/backend"
 # install application
 COPY app /app
 
-#RUN chown -R nginx:www-data /app/
 RUN cd /app && SYMFONY_ENV=prod php composer.phar install --no-dev --optimize-autoloader
 
 CMD ["/usr/local/sbin/start.sh"]

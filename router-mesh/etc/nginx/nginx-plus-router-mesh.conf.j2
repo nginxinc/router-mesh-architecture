@@ -23,7 +23,6 @@ http {
     server {
         listen {{ router_mesh_port }};
         status_zone server-{{ router_mesh_port }};
-        #include /etc/nginx/conf.d/locations/*.conf;
 
         {% for name,service in services.iteritems() %}
             location =/{{ name }} {
@@ -47,11 +46,6 @@ http {
 
     keepalive_timeout  65;
 
-    #gzip  on;
-
-#    include /etc/nginx/conf.d/*.conf;
-#    include /etc/nginx/conf.d/upstreams/*.conf;
-
     {% for name, service in services.iteritems() %}
         upstream {{ name }} {
             {% if service.lb_method -%}
@@ -67,5 +61,4 @@ http {
 
 
 # TCP/UDP proxy and load balancing block
-#
 include /etc/nginx/conf.d/streams/*.conf;

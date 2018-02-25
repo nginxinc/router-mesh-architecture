@@ -35,7 +35,6 @@ class ContentService
      */
     public function __construct() {
         $this->url = getenv("BACKEND_ENDPOINT_URL") . "/content";
-        //echo $this->url;
     }
 
     /**
@@ -44,7 +43,6 @@ class ContentService
     public function getContent()
     {
         $this->content = $this->getRequest();
-        //echo $this->content;
         return $this->content;
     }
 

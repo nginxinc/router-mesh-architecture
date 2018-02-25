@@ -6,7 +6,6 @@
  * Time: 3:04 PM
  */
 
-// web/index.php
 require_once __DIR__.'/../vendor/autoload.php';
 require 'classes/ContentService.php';
 
