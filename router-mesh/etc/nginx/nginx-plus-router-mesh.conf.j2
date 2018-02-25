@@ -21,16 +21,11 @@ http {
     access_log  /var/log/nginx/access.log  main;
 
     server {
-        listen {{ router_mesh_port }};
-        status_zone server-{{ router_mesh_port }};
+        listen 80;
 
         {% for name,service in services.iteritems() %}
             location =/{{ name }} {
                 proxy_pass {{ service.protocol }}://{{ name }}/;
-                health_check {% if health_check_uri %}uri={{ health_check_uri }} {% endif %}interval=5s fails=3;
-                proxy_cache rm_cache;
-                proxy_cache_valid 200 5m;
-                proxy_cache_use_stale http_502 http_503;
                 proxy_connect_timeout 5s;
                 proxy_read_timeout 10s;
             }
@@ -52,7 +47,7 @@ http {
             {{ service.lb_method }};
             {% endif -%}
             zone {{ name }} 64k;
-            server {{ name }} service=_{{ service_name }}._tcp resolve;
+            server {{ service.server }}:{{ service.port }};
         }
     {% endfor %}
 
