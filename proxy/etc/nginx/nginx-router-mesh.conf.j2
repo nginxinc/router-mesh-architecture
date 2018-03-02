@@ -35,7 +35,7 @@ http {
 
     {% for name, service in services.iteritems() %}
     upstream {{ name }} {
-        server        {{ service.router_mesh.host }}:{{ service.router_mesh.port }};
+        server        {{ service.host }}:{{ service.port }};
         zone backend  64k;
         least_conn;
         keepalive 		300;
