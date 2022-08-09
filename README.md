@@ -1,5 +1,8 @@
 # Router Mesh implementation of NGINX Microservices Reference Architecture
 
+# This repository has been archived. There will likely be no further development on the project and security vulnerabilities may be unaddressed.
+
+
 The [Router Mesh](https://www.nginx.com/blog/microservices-reference-architecture-nginx-router-mesh-model/) is the second of the three models found in the NGINX Microservices Reference Architecture (MRA). 
 
 The Router Mesh places NGINX as a reverse proxy server in front of application servers in addition to a single instance of NGINX or NGINX Plus which is configured to route requests to all of the microservices in the system.
